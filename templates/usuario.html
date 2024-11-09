@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Tabla</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+  </style>
+</head>
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for usuario in Personas_list %}
+      <tr>
+        <td><img src="{{ usuario.imagen.url }}" width="300" height="300"></td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.descripcion }}</td>
+      </tr>
+      {% endfor %}
+  
+
+    </tbody>
+  </table>
+
+</body>
+</html>

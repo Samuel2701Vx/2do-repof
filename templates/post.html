@@ -1,8 +1,67 @@
-{% for i in post _list%}
+{% include 'navbar.html' %}
 
-    <h1>{{i.titulo}}</h1>
-    <br
-    <p>{{i.descripcion}}</p>
-    <hr>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación de Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .product-card {
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .product-card-content {
+            padding: 20px;
+        }
+        .product-card-content h2 {
+            margin: 0;
+            color: #333;
+        }
+        .product-card-content p {
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
 
-{% endfor %}
+   
+<body>
+    {% for post in post_list %}
+    <div class="product-card">
+        <img src="minecraftpvpangel.jpg" alt="Imagen del Producto">
+        <div class="product-card-content">
+            <h2><a href="{% url 'detail' post.pk %}">{{post.titulo}}</a></h2>
+            <p>{{post.descripcion}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
+
+
+
+
+
+<a href="{% url 'usuario' %}">Dashboard de usuario</a>
+
+
+   

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Interactiva</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #000; /* Negro */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Verdana', sans-serif; /* Letras modernas */
+        }
+        .navbar a:hover {
+            background-color: #b22222; /* Rojo oscuro */
+            color: #fff;
+        }
+        .navbar a.active {
+            background-color: #dc143c; /* Rojo */
+            color: white;
+        }
+        .container {
+            padding-top: 60px; /* Para evitar superposición con la navbar fija */
+            text-align: center;
+            
+
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+            color: #333;
+            font-family: 'Verdana', sans-serif; /* Letras modernas */
+        }
+
+
+ 
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'post' %}" class="active">Home</a>
+        <a href="{% url 'create' %}">Create</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+
+
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>Bienvenido Papu :v</h1>
+        <p>Esta es la página de inicio mia.</p>
+        <p>aqui va mucho texto interesante para la interfaz</p>
+    </div>
+</body>
+</html>
+
